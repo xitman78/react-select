@@ -618,10 +618,15 @@ var Select = React.createClass({
 	handleInputBlur: function handleInputBlur(event) {
 		var _this7 = this;
 
-		var menuDOM = ReactDOM.findDOMNode(this.refs.menu);
-		if (document.activeElement.isEqualNode(menuDOM)) {
+		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
+			this.focus();
 			return;
 		}
+
+		/*var menuDOM = ReactDOM.findDOMNode(this.refs.menu);
+  if (document.activeElement.isEqualNode(menuDOM)) {
+  	return;
+  }*/
 
 		this._blurTimeout = setTimeout(function () {
 			if (_this7._focusAfterUpdate || !_this7.isMounted()) return;
